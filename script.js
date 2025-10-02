@@ -24,7 +24,7 @@ const theatersData = {
                     date: '2024-12-20',
                     time: '17:00',
                     priceFrom: 200,
-                    priceTo: 450,
+                    priceTo: 700,
                     description: 'Балет за мотивами роману Мігеля де Сервантеса',
                     image: 'fas fa-dancing'
                 },
@@ -33,8 +33,8 @@ const theatersData = {
                     title: 'Містер Ікс',
                     date: '2024-12-25',
                     time: '17:00',
-                    priceFrom: 220,
-                    priceTo: 380,
+                    priceFrom: 200,
+                    priceTo: 700,
                     description: 'Оперета Імре Кальмана',
                     image: 'fas fa-mask'
                 }
@@ -45,15 +45,15 @@ const theatersData = {
             name: 'Дніпропетровська філармонія',
             city: 'Дніпро',
             capacity: 686,
-            priceRange: '70-200 грн',
+            priceRange: '200-500 грн',
             performances: [
                 {
                     id: 'anime-part1',
                     title: 'Anime Part 1',
                     date: '2024-12-18',
                     time: '18:00',
-                    priceFrom: 120,
-                    priceTo: 250,
+                    priceFrom: 200,
+                    priceTo: 500,
                     description: 'Концерт музики з аніме та японської культури',
                     image: 'fas fa-headphones'
                 },
@@ -63,7 +63,7 @@ const theatersData = {
                     date: '2024-12-22',
                     time: '19:00',
                     priceFrom: 150,
-                    priceTo: 300,
+                    priceTo: 350,
                     description: 'Вечір джазової музики з відомими виконавцями',
                     image: 'fas fa-music'
                 },
@@ -72,8 +72,8 @@ const theatersData = {
                     title: 'Rock 90x',
                     date: '2024-12-28',
                     time: '18:00',
-                    priceFrom: 180,
-                    priceTo: 350,
+                    priceFrom: 200,
+                    priceTo: 500,
                     description: 'Концерт рок-музики 90-х років',
                     image: 'fas fa-guitar'
                 }
@@ -84,14 +84,14 @@ const theatersData = {
             name: 'Театр драми ім. Шевченка',
             city: 'Кривий Ріг',
             capacity: 500,
-            priceRange: '100-220 грн',
+            priceRange: '70-200 грн',
             performances: [
                 {
                     id: 'za-dvoma-zaytsyamy',
                     title: 'За двома зайцями',
                     date: '2024-12-29',
                     time: '19:00',
-                    priceFrom: 100,
+                    priceFrom: 70,
                     priceTo: 200,
                     description: 'Класична українська комедія Михайла Старицького',
                     image: 'fas fa-laugh'
@@ -102,16 +102,16 @@ const theatersData = {
             id: 'academy',
             name: 'Академія Руху',
             city: 'Кривий Ріг',
-            capacity: 300,
-            priceRange: '80-200 грн',
+            capacity: 400,
+            priceRange: '100-220 грн',
             performances: [
                 {
                     id: 'modern-drama',
                     title: 'Сучасна драма',
                     date: '2024-12-30',
                     time: '18:00',
-                    priceFrom: 80,
-                    priceTo: 150,
+                    priceFrom: 100,
+                    priceTo: 200,
                     description: 'Експериментальна театральна постановка',
                     image: 'fas fa-star'
                 }
