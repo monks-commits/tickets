@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Академія Руху - Театральні квитки</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-theater-masks"></i>
+                <span>Театральні квитки</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Головна</a>
+                <a href="index.html#afisha" class="nav-link">Афіша</a>
+                <a href="index.html#theaters" class="nav-link">Театри</a>
+                <a href="index.html#about" class="nav-link">Про нас</a>
+                <a href="index.html#contact" class="nav-link">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Theater Page Content -->
+    <div class="theater-page-content">
+        <div class="container">
+            <!-- Theater Header -->
+            <div class="theater-header">
+                <div class="theater-image">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="theater-info">
+                    <h1>Академія Руху</h1>
+                    <p class="theater-city">Кривий Ріг</p>
+                    <div class="theater-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>вул. Соборна, 25, Кривий Ріг</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+380 (56) 789-XX-XX</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span>300 місць</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>80-200 грн</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theater Description -->
+            <section class="theater-description">
+                <h2>Про театр</h2>
+                <p>Академія Руху - сучасний театр, що експериментує з новими формами театрального мистецтва та сучасною драматургією.</p>
+                <p>Театр був заснований у 2010 році групою молодих акторів та режисерів, які прагнули створити новий простір для театрального мистецтва в Кривому Розі.</p>
+            </section>
+
+            <!-- Theater History -->
+            <section class="theater-history">
+                <h2>Історія театру</h2>
+                <p>Академія Руху була заснована у 2010 році як експериментальний театральний простір. Назва театру відображає його філософію постійного руху та розвитку.</p>
+                <p>За роки існування театр поставив понад 50 вистав різних жанрів - від класичної драми до сучасних перформансів та інтерактивних вистав.</p>
+            </section>
+
+            <!-- Hall Scheme -->
+            <section class="hall-scheme">
+                <h2>Схема залу</h2>
+                <div class="scheme-container">
+                    <div class="scheme-image">
+                        <i class="fas fa-star"></i>
+                        <p>Схема залу Академії Руху</p>
+                    </div>
+                    <div class="scheme-legend">
+                        <h3>Легенда місць:</h3>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff6b6b;"></div>
+                            <span>Партер (120-200 грн)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #4CAF50;"></div>
+                            <span>Амфітеатр (100-150 грн)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #2196F3;"></div>
+                            <span>Балкон (80-120 грн)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performances -->
+            <section class="theater-performances">
+                <h2>Афіша театру</h2>
+                <div class="performances-grid">
+                    <div class="performance-card" onclick="openBookingModal('academy', 'modern-drama')">
+                        <div class="performance-image">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="performance-info">
+                            <h3>Сучасна драма</h3>
+                            <p class="performance-date">30 грудня 2024, 18:00</p>
+                            <p class="performance-price">80-150 грн</p>
+                            <p class="performance-description">Експериментальна театральна постановка</p>
+                            <button class="btn btn-primary">Купити квиток</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Повернутися до головної
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div id="bookingContent">
+                <!-- Booking content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

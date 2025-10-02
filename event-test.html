@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовий спектакль - Театральні квитки</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-theater-masks"></i>
+                <span>Театральні квитки</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Головна</a>
+                <a href="index.html#afisha" class="nav-link">Афіша</a>
+                <a href="index.html#theaters" class="nav-link">Театри</a>
+                <a href="index.html#about" class="nav-link">Про нас</a>
+                <a href="index.html#contact" class="nav-link">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Test Performance Page -->
+    <div class="theater-page-content">
+        <div class="container">
+            <div class="theater-header">
+                <div class="theater-image">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="theater-info">
+                    <h1>ТЕСТОВА СТОРІНКА ПРАЦЮЄ!</h1>
+                    <p class="theater-city">Якщо ви це бачите - посилання працюють правильно</p>
+                    <div class="theater-details">
+                        <div class="detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Сайт завантажується</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Стилі працюють</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>JavaScript активний</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="seats-selection">
+                <h2>Виберіть місце</h2>
+                
+                <div class="price-category">
+                    <h3>Білети по 300 грн</h3>
+                    <p><strong>Партер</strong></p>
+                    <p>Ряд 10 Місця: 
+                        <button class="seat-button" onclick="selectSeat('Партер', 10, 15, 300)">15</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 10, 16, 300)">16</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 10, 17, 300)">17</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 10, 18, 300)">18</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 10, 19, 300)">19</button>
+                    </p>
+                </div>
+
+                <div class="price-category">
+                    <h3>Білети по 400 грн</h3>
+                    <p><strong>Партер</strong></p>
+                    <p>Ряд 8 Місця: 
+                        <button class="seat-button" onclick="selectSeat('Партер', 8, 12, 400)">12</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 8, 13, 400)">13</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 8, 14, 400)">14</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 8, 15, 400)">15</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 8, 16, 400)">16</button>
+                    </p>
+                </div>
+
+                <div class="price-category">
+                    <h3>Білети по 500 грн</h3>
+                    <p><strong>Партер</strong></p>
+                    <p>Ряд 5 Місця: 
+                        <button class="seat-button" onclick="selectSeat('Партер', 5, 10, 500)">10</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 5, 11, 500)">11</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 5, 12, 500)">12</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 5, 13, 500)">13</button>
+                        <button class="seat-button" onclick="selectSeat('Партер', 5, 14, 500)">14</button>
+                    </p>
+                </div>
+            </section>
+
+            <div class="back-button">
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Повернутися до головної
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div id="bookingContent">
+                <!-- Booking content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

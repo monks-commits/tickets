@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дніпровський театр опери та балету - Театральні квитки</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-theater-masks"></i>
+                <span>Театральні квитки</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Головна</a>
+                <a href="index.html#afisha" class="nav-link">Афіша</a>
+                <a href="index.html#theaters" class="nav-link">Театри</a>
+                <a href="index.html#about" class="nav-link">Про нас</a>
+                <a href="index.html#contact" class="nav-link">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Theater Page Content -->
+    <div class="theater-page-content">
+        <div class="container">
+            <!-- Theater Header -->
+            <div class="theater-header">
+                <div class="theater-image">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="theater-info">
+                    <h1>Дніпровський театр опери та балету</h1>
+                    <p class="theater-city">Дніпро</p>
+                    <div class="theater-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>вул. Театральна, 5, Дніпро</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+380 (56) 745-XX-XX</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span>1200 місць</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>200-700 грн</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theater Description -->
+            <section class="theater-description">
+                <h2>Про театр</h2>
+                <p>Дніпровський театр опери та балету - один з найстаріших театрів України, заснований у 1974 році. Театр спеціалізується на класичних операх та балетах, а також сучасних постановках.</p>
+                <p>Архітектура будівлі поєднує в собі класичні традиції та сучасні рішення. Величезний зал на 1200 місць забезпечує відмінну акустику та візуальний контакт зі сценою з будь-якого місця.</p>
+            </section>
+
+            <!-- Theater History -->
+            <section class="theater-history">
+                <h2>Історія театру</h2>
+                <p>Театр був заснований у 1974 році як Дніпропетровський театр опери та балету. За роки існування на сцені театру було поставлено понад 200 вистав, включаючи класичні опери, балети та сучасні постановки.</p>
+                <p>У 2010 році театр був реконструйований та модернізований, що дозволило покращити акустику та технічне оснащення. Сьогодні це один з провідних театрів України.</p>
+            </section>
+
+            <!-- Hall Scheme -->
+            <section class="hall-scheme">
+                <h2>Схема залу</h2>
+                <div class="scheme-container">
+                    <div class="scheme-image">
+                        <i class="fas fa-theater-masks"></i>
+                        <p>Схема залу Оперного театру</p>
+                    </div>
+                    <div class="scheme-legend">
+                        <h3>Легенда місць:</h3>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff6b6b;"></div>
+                            <span>Партер (400-700 грн)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #4CAF50;"></div>
+                            <span>Амфітеатр (350-500 грн)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #2196F3;"></div>
+                            <span>Балкон (200-350 грн)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performances -->
+            <section class="theater-performances">
+                <h2>Афіша театру</h2>
+                <div class="performances-grid">
+                    <div class="performance-card" onclick="openBookingModal('opera', 'carmina-burana')">
+                        <div class="performance-image">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="performance-info">
+                            <h3>Карміна Бурана</h3>
+                            <p class="performance-date">15 грудня 2024, 18:00</p>
+                            <p class="performance-price">200-700 грн</p>
+                            <p class="performance-description">Класична кантата Карла Орфа з хореографією та вокальними партіями</p>
+                            <button class="btn btn-primary">Купити квиток</button>
+                        </div>
+                    </div>
+
+                    <div class="performance-card" onclick="openBookingModal('opera', 'don-quixote')">
+                        <div class="performance-image">
+                            <i class="fas fa-dancing"></i>
+                        </div>
+                        <div class="performance-info">
+                            <h3>Дон Кіхот</h3>
+                            <p class="performance-date">20 грудня 2024, 17:00</p>
+                            <p class="performance-price">200-450 грн</p>
+                            <p class="performance-description">Балет за мотивами роману Мігеля де Сервантеса</p>
+                            <button class="btn btn-primary">Купити квиток</button>
+                        </div>
+                    </div>
+
+                    <div class="performance-card" onclick="openBookingModal('opera', 'mister-x')">
+                        <div class="performance-image">
+                            <i class="fas fa-mask"></i>
+                        </div>
+                        <div class="performance-info">
+                            <h3>Містер Ікс</h3>
+                            <p class="performance-date">25 грудня 2024, 17:00</p>
+                            <p class="performance-price">220-380 грн</p>
+                            <p class="performance-description">Оперета Імре Кальмана</p>
+                            <button class="btn btn-primary">Купити квиток</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Повернутися до головної
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div id="bookingContent">
+                <!-- Booking content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

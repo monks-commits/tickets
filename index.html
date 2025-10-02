@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Театральні квитки Дніпра та Кривого Рогу</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-theater-masks"></i>
+                <span>Театральні квитки</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Головна</a>
+                <a href="#afisha" class="nav-link">Афіша</a>
+                <a href="#theaters" class="nav-link">Театри</a>
+                <a href="#about" class="nav-link">Про нас</a>
+                <a href="#contact" class="nav-link">Контакти</a>
+            </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="uk">УК</button>
+                <button class="lang-btn" data-lang="ru">РУ</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Театральні квитки без комісій</h1>
+            <p class="hero-subtitle">Офіційний продаж квитків по ціні каси театрів Дніпра та Кривого Рогу</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('afisha')">
+                    <i class="fas fa-calendar-alt"></i>
+                    Подивитися афішу
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('theaters')">
+                    <i class="fas fa-building"></i>
+                    Наші театри
+                </button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="theater-silhouette">
+                <i class="fas fa-theater-masks"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <h2>Знайти квитки</h2>
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label for="city-filter">Місто:</label>
+                        <select id="city-filter">
+                            <option value="">Всі міста</option>
+                            <option value="dnipro">Дніпро</option>
+                            <option value="kryvyi-rih">Кривий Ріг</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="theater-filter">Театр:</label>
+                        <select id="theater-filter">
+                            <option value="">Всі театри</option>
+                            <option value="opera">Оперний театр</option>
+                            <option value="philharmonia">Філармонія</option>
+                            <option value="shevchenko">Театр ім. Шевченка</option>
+                            <option value="academy">Академія Руху</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="date-filter">Дата:</label>
+                        <input type="date" id="date-filter">
+                    </div>
+                    <button class="btn btn-primary" onclick="filterPerformances()">
+                        <i class="fas fa-search"></i>
+                        Пошук
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performances Section -->
+    <section id="afisha" class="performances-section">
+        <div class="container">
+            <h2 class="section-title">Афіша вистав</h2>
+            <div class="performances-grid" id="performances-grid">
+                <!-- Performances will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Theaters Section -->
+    <section id="theaters" class="theaters-section">
+        <div class="container">
+            <h2 class="section-title">Наші театри</h2>
+            <div class="theaters-grid">
+                <div class="theater-card" onclick="openTheaterPage('opera')">
+                    <div class="theater-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="theater-info">
+                        <h3>Дніпровський театр опери та балету</h3>
+                        <p class="theater-city">Дніпро</p>
+                        <p class="theater-description">Класичні опери та балети</p>
+                        <div class="theater-features">
+                            <span class="feature">1200 місць</span>
+                            <span class="feature">200-700 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theater-card" onclick="openTheaterPage('philharmonia')">
+                    <div class="theater-image">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="theater-info">
+                        <h3>Дніпропетровська філармонія</h3>
+                        <p class="theater-city">Дніпро</p>
+                        <p class="theater-description">Концерти та музичні вистави</p>
+                        <div class="theater-features">
+                            <span class="feature">686 місць</span>
+                            <span class="feature">200-500 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theater-card" onclick="openTheaterPage('shevchenko')">
+                    <div class="theater-image">
+                        <i class="fas fa-drama-masks"></i>
+                    </div>
+                    <div class="theater-info">
+                        <h3>Театр драми ім. Шевченка</h3>
+                        <p class="theater-city">Кривий Ріг</p>
+                        <p class="theater-description">Драматичні вистави</p>
+                        <div class="theater-features">
+                            <span class="feature">500 місць</span>
+                            <span class="feature">70-200 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theater-card" onclick="openTheaterPage('academy')">
+                    <div class="theater-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="theater-info">
+                        <h3>Академія Руху</h3>
+                        <p class="theater-city">Кривий Ріг</p>
+                        <p class="theater-description">Сучасні театральні постановки</p>
+                        <div class="theater-features">
+                            <span class="feature">300 місць</span>
+                            <span class="feature">120-200 грн</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Про нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ми є офіційним дистриб'ютором театральних квитків у Дніпрі та Кривому Розі. Наша мета - зробити театральне мистецтво доступним для всіх.</p>
+                    <div class="advantages">
+                        <div class="advantage">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ціни як в касі театру</span>
+                        </div>
+                        <div class="advantage">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Гарантія якості</span>
+                        </div>
+                        <div class="advantage">
+                            <i class="fas fa-clock"></i>
+                            <span>Швидке оформлення</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Контакти</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+380 (68) 516-01-02</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@theater-tickets.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Робочий час</h4>
+                            <p>Пн-Пт: 9:00-18:00<br>Сб-Нд: 10:00-16:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h4>Ми в соціальних мережах</h4>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </a>
+                        <a href="#" class="social-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+                        <a href="#" class="social-btn telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                            Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Театральні квитки</h3>
+                    <p>Офіційний продаж квитків театрів Дніпра та Кривого Рогу</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Театри</h4>
+                    <ul>
+                        <li><a href="#">Оперний театр</a></li>
+                        <li><a href="#">Філармонія</a></li>
+                        <li><a href="#">Театр Шевченка</a></li>
+                        <li><a href="#">Академія Руху</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Підтримка</h4>
+                    <ul>
+                        <li><a href="#">Допомога</a></li>
+                        <li><a href="#">Повернення</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Театральні квитки. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Замовлення квитка</h2>
+            <div id="bookingContent">
+                <!-- Booking content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
