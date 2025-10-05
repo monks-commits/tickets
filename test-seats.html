@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тест вибору місць</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+    #hall {
+      display: inline-grid;
+      grid-template-columns: repeat(10, 35px);
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .seat {
+      width: 35px;
+      height: 35px;
+      background: #ccc;
+      border-radius: 6px;
+      border: 1px solid #999;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .seat.selected {
+      background: #4caf50;
+      border-color: #3a8c40;
+    }
+    #summary {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+    #orderBtn {
+      margin-top: 15px;
+      padding: 10px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #2196f3;
+      color: white;
+      cursor: pointer;
+    }
+    #orderBtn:disabled {
+      background: #9e9e9e;
+    }
+    #orderForm {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 350px;
+      margin: 25px auto;
+    }
+    #orderForm input {
+      width: 90%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>Оберіть місця у залі</h2>
+
+  <div id="hall"></div>
+
+  <div id="summary">
+    <p>Обрано місць: <span id="count">0</span></p>
+    <p>Сума до сплати: <span id="total">0</span> грн</p>
+    <button id="orderBtn" disabled>Оформити замовлення</button>
+  </div>
+
+  <div id="orderForm">
+    <h3>Оформлення замовлення</h3>
+    <form id="bookingForm">
+      <input type="text" placeholder="Ваше ім’я" required />
+      <input type="tel" placeholder="Телефон" required />
+      <button type="submit">Підтвердити</button>
+    </form>
+  </div>
+
+  <script>
+    const hall = document.getElementById('hall');
+    const countEl = document.getElementById('count');
+    const totalEl = document.getElementById('total');
+    const orderBtn = document.getElementById('orderBtn');
+    const orderForm = document.getElementById('orderForm');
+    const bookingForm = document.getElementById('bookingForm');
+
+    const seatsData = [
+      { seat: "A1", price: 250 },
+      { seat: "A2", price: 250 },
+      { seat: "A3", price: 250 },
+      { seat: "A4", price: 300 },
+      { seat: "A5", price: 300 },
+      { seat: "A6", price: 350 }
+    ];
+
+    let selectedSeats = [];
+    let total = 0;
+
+    // Створюємо місця динамічно
+    seatsData.forEach(seat => {
+      const div = document.createElement('div');
+      div.classList.add('seat');
+      div.dataset.seat = seat.seat;
+      div.dataset.price = seat.price;
+
+      div.addEventListener('click', () => {
+        const seatNumber = div.dataset.seat;
+        const price = parseInt(div.dataset.price);
+
+        if (div.classList.contains('selected')) {
+          div.classList.remove('selected');
+          selectedSeats = selectedSeats.filter(s => s !== seatNumber);
+          total -= price;
+        } else {
+          div.classList.add('selected');
+          selectedSeats.push(seatNumber);
+          total += price;
+        }
+
+        countEl.textContent = selectedSeats.length;
+        totalEl.textContent = total;
+        orderBtn.disabled = selectedSeats.length === 0;
+      });
+
+      hall.appendChild(div);
+    });
+
+    orderBtn.addEventListener('click', () => {
+      orderForm.style.display = 'block';
+      orderBtn.style.display = 'none';
+    });
+
+    bookingForm.addEventListener('submit', e => {
+      e.preventDefault();
+      alert(
+        `Ви замовили місця: ${selectedSeats.join(', ')}\nСума: ${total} грн`
+      );
+    });
+  </script>
+</body>
+</html>
