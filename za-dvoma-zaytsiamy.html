@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>За двома зайцями — Театр Шевченка, Кривий Ріг</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; margin: 0; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    h1 { text-align: center; margin-top: 20px; }
+    .event-info { background: #fff; padding: 15px; border-radius: 8px; margin: 20px 0; }
+    .hall-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      background: url('shevchenko.png') no-repeat center;
+      background-size: contain;
+      height: 600px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .seat {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #000;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid rgba(0,0,0,0.4);
+      font-weight: bold;
+    }
+    .seat.selected {
+      outline: 2px solid gold;
+      box-shadow: 0 0 6px gold;
+    }
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; justify-content: center;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 6px;
+      font-weight: bold;
+    }
+    .color-box {
+      width: 22px; height: 22px; border: 1px solid #333;
+    }
+    .cart {
+      background: #fff; padding: 18px; border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .cart h3 { margin-top: 0; }
+    .cart-item { margin: 6px 0; font-family: monospace; }
+    .total { font-size: 20px; font-weight: bold; margin: 12px 0; color: #d32f2f; }
+    .order-form { margin-top: 20px; }
+    .form-group { margin: 14px 0; }
+    .form-group label {
+      display: block; margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input {
+      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;
+      font-size: 16px;
+    }
+    .pay-btn {
+      background: #1976d2; color: white; border: none; padding: 14px;
+      font-size: 18px; border-radius: 6px; cursor: pointer; width: 100%;
+      margin-top: 10px;
+    }
+    .pay-btn:hover { background: #1565c0; }
+    .pay-btn:disabled { background: #bdbdbd; cursor: not-allowed; }
+    .note {
+      font-size: 14px; color: #666; margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎭 За двома зайцями</h1>
+
+    <div class="event-info">
+      <p><strong>Театр:</strong> Театр драми ім. Т. Г. Шевченка, Кривий Ріг</p>
+      <p><strong>Дата та час:</strong> 15 жовтня 2025, 19:00</p>
+      <p>Легендарна українська комедія Івана Карпенка-Карого у яскравій сучасній постановці.</p>
+    </div>
+
+    <!-- Легенда цен -->
+    <div class="legend">
+      <div class="legend-item"><div class="color-box" style="background:#d32f2f"></div> 200 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#f57c00"></div> 180 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#fbc02d"></div> 160 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#7cb342"></div> 140 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#29b6f6"></div> 120 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#7e57c2"></div> 100 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#9e9e9e"></div> 70 грн</div>
+    </div>
+
+    <!-- Схема зала -->
+    <div class="hall-container" id="hall"></div>
+
+    <!-- Корзина и форма -->
+    <div class="cart">
+      <h3>Ваше замовлення</h3>
+      <div id="cart-items"></div>
+      <div class="total">Разом: <span id="total">0</span> грн</div>
+
+      <div class="order-form">
+        <div class="form-group">
+          <label>Прізвище та Ім’я *</label>
+          <input type="text" id="name" required placeholder="Петренко Марія">
+        </div>
+        <div class="form-group">
+          <label>Телефон *</label>
+          <input type="tel" id="phone" required placeholder="+380 68 123 45 67">
+        </div>
+        <div class="form-group">
+          <label>Email (для отримання квитків) *</label>
+          <input type="email" id="email" required placeholder="mariya@example.com">
+        </div>
+        <div class="form-group">
+          <label>Коментар (номер місць за бажанням)</label>
+          <input type="text" id="comment" placeholder="Наприклад: разом з сім'єю">
+        </div>
+      </div>
+
+      <button class="pay-btn" id="pay-btn" disabled>Оплатити квитки</button>
+      <p class="note">Після оплати ви отримаєте електронні квитки на email протягом 1 години.</p>
+    </div>
+  </div>
+
+  <script>
+    // === ВАША КВОТА: 70 місць (поки приклад з 5 місцями — ви додасте решту) ===
+    const quotaSeats = [
+      // Формат: { row: "ряд", seat: "місце", price: ціна, x: пікселі від лівого краю, y: пікселі від верху }
+      { row: 3, seat: 5, price: 200, x: 210, y: 150 },
+      { row: 3, seat: 6, price: 200, x: 240, y: 150 },
+      { row: 3, seat: 7, price: 200, x: 270, y: 150 },
+      { row: 5, seat: 12, price: 180, x: 300, y: 200 },
+      { row: 5, seat: 13, price: 180, x: 330, y: 200 }
+      // 🔧 Додайте решту 65 місць сюди за тим самим шаблоном
+    ];
+
+    const priceColors = {
+      200: '#d32f2f',
+      180: '#f57c00',
+      160: '#fbc02d',
+      140: '#7cb342',
+      120: '#29b6f6',
+      100: '#7e57c2',
+      70: '#9e9e9e'
+    };
+
+    let selectedSeats = [];
+
+    function renderSeats() {
+      const hall = document.getElementById('hall');
+      quotaSeats.forEach((seat, index) => {
+        const seatEl = document.createElement('div');
+        seatEl.className = 'seat';
+        seatEl.textContent = seat.seat;
+        seatEl.style.left = `${seat.x}px`;
+        seatEl.style.top = `${seat.y}px`;
+        seatEl.style.backgroundColor = priceColors[seat.price];
+        seatEl.dataset.index = index;
+
+        seatEl.addEventListener('click', () => toggleSeat(index, seatEl));
+        hall.appendChild(seatEl);
+      });
+    }
+
+    function toggleSeat(index, element) {
+      const seat = quotaSeats[index];
+      const key = `${seat.row}-${seat.seat}`;
+      const existing = selectedSeats.find(s => s.key === key);
+
+      if (existing) {
+        selectedSeats = selectedSeats.filter(s => s.key !== key);
+        element.classList.remove('selected');
+      } else {
+        selectedSeats.push({ key, ...seat });
+        element.classList.add('selected');
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalEl = document.getElementById('total');
+      const payBtn = document.getElementById('pay-btn');
+
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      selectedSeats.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.textContent = `Ряд ${item.row}, Місце ${item.seat} — ${item.price} грн`;
+        cartItems.appendChild(div);
+        total += item.price;
+      });
+
+      totalEl.textContent = total;
+      payBtn.disabled = selectedSeats.length === 0;
+    }
+
+    document.getElementById('pay-btn').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const total = document.getElementById('total').textContent;
+
+      if (!name || !phone || !email) {
+        alert('❗ Будь ласка, заповніть усі обов’язкові поля.');
+        return;
+      }
+
+      // 🔧 ЗАМІНИТЕ ЦЕЙ БЛОК НА РЕАЛЬНУ ПЛАТІЖНУ ПОСИЛАННЯ LIQPAY
+      const order_id = `za_zaytsiamy_20251015_${Date.now()}`;
+      const description = encodeURIComponent(`За двома зайцями, місця: ${selectedSeats.map(s => `Р${s.row}-М${s.seat}`).join(', ')}`);
+      
+      // Приклад шаблону для LiqPay (вам потрібно створити таку посилання в панелі LiqPay)
+      const liqpayUrl = `https://www.liqpay.ua/checkout?amount=${total}&currency=UAH&description=${description}&order_id=${order_id}&language=uk`;
+      
+      // Перенаправлення на оплату
+      window.location.href = liqpayUrl;
+    });
+
+    // Запуск
+    renderSeats();
+  </script>
+</body>
+</html>
