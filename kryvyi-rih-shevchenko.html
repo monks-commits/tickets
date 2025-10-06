@@ -1,142 +1,189 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Театр драми ім. Шевченка - Театральні квитки</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Театр Шевченко — Кривий Ріг</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1 { text-align: center; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; justify-content: center;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 5px;
+      font-weight: bold;
+    }
+    .color-box {
+      width: 20px; height: 20px; border: 1px solid #333;
+    }
+    .hall {
+      display: flex; flex-direction: column; align-items: center;
+      margin: 20px 0;
+    }
+    .row {
+      display: flex;
+      margin: 4px 0;
+    }
+    .seat {
+      width: 30px; height: 30px; margin: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #000;
+      cursor: pointer;
+      border: 1px solid #666;
+      user-select: none;
+    }
+    .seat.selected {
+      outline: 2px solid gold;
+      box-shadow: 0 0 5px gold;
+    }
+    .seat.disabled {
+      background: #eee;
+      color: #999;
+      cursor: not-allowed;
+    }
+    .cart {
+      background: #fff; padding: 15px; border-radius: 8px; margin-top: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .cart h3 { margin-top: 0; }
+    .cart-item { margin: 5px 0; }
+    .total { font-size: 18px; font-weight: bold; margin-top: 10px; }
+    .pay-btn {
+      background: #007bff; color: white; border: none; padding: 10px 20px;
+      font-size: 16px; border-radius: 5px; cursor: pointer; margin-top: 15px;
+    }
+    .pay-btn:hover { background: #0056b3; }
+    .pay-btn:disabled { background: #ccc; cursor: not-allowed; }
+    .stage {
+      width: 300px; height: 20px; background: #d4af37; margin: 10px 0;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: bold;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-theater-masks"></i>
-                <span>Театральні квитки</span>
-            </div>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Головна</a>
-                <a href="index.html#afisha" class="nav-link">Афіша</a>
-                <a href="index.html#theaters" class="nav-link">Театри</a>
-                <a href="index.html#about" class="nav-link">Про нас</a>
-                <a href="index.html#contact" class="nav-link">Контакти</a>
-            </nav>
-        </div>
-    </header>
+  <div class="container">
+    <h1>Театр драми ім. Шевченка — Кривий Ріг</h1>
 
-    <!-- Theater Page Content -->
-    <div class="theater-page-content">
-        <div class="container">
-            <!-- Theater Header -->
-            <div class="theater-header">
-                <div class="theater-image">
-                    <i class="fas fa-drama-masks"></i>
-                </div>
-                <div class="theater-info">
-                    <h1>Театр драми та музичної комедії ім. Т.Г. Шевченка</h1>
-                    <p class="theater-city">Кривий Ріг</p>
-                    <div class="theater-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>пр Поштовий, 23, Кривий Ріг</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+380 (68) 516-01-02</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span>500 місць</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-ticket-alt"></i>
-                            <span>70-200 грн</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Theater Description -->
-            <section class="theater-description">
-                <h2>Про театр</h2>
-                <p>Театр драми та музичної комедії ім. Т.Г. Шевченка - класичний театр драми, що спеціалізується на українській та світовій драматургії.</p>
-                <p>Театр був заснований у 1930 році та є одним з найстаріших театрів міста. За роки існування на сцені театру було поставлено понад 500 вистав різних жанрів.</p>
-            </section>
-
-            <!-- Theater History -->
-            <section class="theater-history">
-                <h2>Історія театру</h2>
-                <p>Театр був заснований у 1930 році як Криворізький театр драми. У 1954 році театру було присвоєно ім'я Тараса Григоровича Шевченка.</p>
-                <p>У 1980-х роках театр був реконструйований та розширений. Сьогодні це сучасний театральний комплекс з відмінною акустикою та технічним оснащенням.</p>
-            </section>
-
-            <!-- Hall Scheme -->
-            <section class="hall-scheme">
-                <h2>Схема залу</h2>
-                <div class="scheme-container">
-                    <div class="scheme-image">
-                        <i class="fas fa-drama-masks"></i>
-                        <p>Схема залу Театру Шевченка</p>
-                    </div>
-                    <div class="scheme-legend">
-                        <h3>Легенда місць:</h3>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #ff6b6b;"></div>
-                            <span>Партер (70-200 грн)</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #4CAF50;"></div>
-                            <span>Амфітеатр (70-200 грн)</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #2196F3;"></div>
-                            <span>Балкон (100-150 грн)</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Performances -->
-            <section class="theater-performances">
-                <h2>Афіша театру</h2>
-                <div class="performances-grid">
-                    <div class="performance-card" onclick="openBookingModal('shevchenko', 'za-dvoma-zaytsyamy')">
-                        <div class="performance-image">
-                            <i class="fas fa-laugh"></i>
-                        </div>
-                        <div class="performance-info">
-                            <h3>За двома зайцями</h3>
-                            <p class="performance-date">29 грудня 2024, 19:00</p>
-                            <p class="performance-price">70-200 грн</p>
-                            <p class="performance-description">Класична українська комедія Михайла Старицького</p>
-                            <button class="btn btn-primary">Купити квиток</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Back Button -->
-            <div class="back-button">
-                <a href="index.html" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i>
-                    Повернутися до головної
-                </a>
-            </div>
-        </div>
+    <!-- Легенда цен -->
+    <div class="legend">
+      <div class="legend-item"><div class="color-box" style="background:#d32f2f"></div> 200 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#f57c00"></div> 180 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#fbc02d"></div> 160 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#7cb342"></div> 140 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#29b6f6"></div> 120 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#7e57c2"></div> 100 грн</div>
+      <div class="legend-item"><div class="color-box" style="background:#9e9e9e"></div> 70 грн</div>
     </div>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">&times;</span>
-            <div id="bookingContent">
-                <!-- Booking content will be loaded here -->
-            </div>
-        </div>
-    </div>
+    <!-- Сцена -->
+    <div class="stage">СЦЕНА</div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Зал -->
+    <div class="hall" id="hall"></div>
+
+    <!-- Корзина -->
+    <div class="cart">
+      <h3>Ваш заказ</h3>
+      <div id="cart-items"></div>
+      <div class="total">Итого: <span id="total">0</span> грн</div>
+      <button class="pay-btn" id="pay-btn" disabled>Оплатить</button>
+    </div>
+  </div>
+
+  <script>
+    // Цены по рядам (ряд → цена)
+    const rowPrices = {
+      6: 200, 7: 200,
+      8: 180, 9: 180,
+      10: 160, 11: 160,
+      12: 140,
+      13: 120,
+      14: 100,
+      15: 70
+    };
+
+    // Цвета по цене
+    const priceColors = {
+      200: '#d32f2f',
+      180: '#f57c00',
+      160: '#fbc02d',
+      140: '#7cb342',
+      120: '#29b6f6',
+      100: '#7e57c2',
+      70: '#9e9e9e'
+    };
+
+    let selectedSeats = [];
+
+    function renderHall() {
+      const hall = document.getElementById('hall');
+      hall.innerHTML = '';
+
+      for (let row = 15; row >= 6; row--) {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'row';
+        rowDiv.dataset.row = row;
+
+        for (let seat = 1; seat <= 10; seat++) {
+          const seatDiv = document.createElement('div');
+          seatDiv.className = 'seat';
+          seatDiv.textContent = seat;
+          seatDiv.dataset.row = row;
+          seatDiv.dataset.seat = seat;
+          seatDiv.style.backgroundColor = priceColors[rowPrices[row]];
+
+          seatDiv.addEventListener('click', () => toggleSeat(row, seat, seatDiv));
+          rowDiv.appendChild(seatDiv);
+        }
+        hall.appendChild(rowDiv);
+      }
+    }
+
+    function toggleSeat(row, seat, element) {
+      const key = `${row}-${seat}`;
+      const index = selectedSeats.findIndex(s => s.key === key);
+
+      if (index === -1) {
+        selectedSeats.push({ key, row, seat, price: rowPrices[row] });
+        element.classList.add('selected');
+      } else {
+        selectedSeats.splice(index, 1);
+        element.classList.remove('selected');
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalEl = document.getElementById('total');
+      const payBtn = document.getElementById('pay-btn');
+
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      selectedSeats.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.textContent = `Ряд ${item.row}, Місце ${item.seat} — ${item.price} грн`;
+        cartItems.appendChild(div);
+        total += item.price;
+      });
+
+      totalEl.textContent = total;
+      payBtn.disabled = selectedSeats.length === 0;
+    }
+
+    document.getElementById('pay-btn').addEventListener('click', () => {
+      const total = document.getElementById('total').textContent;
+      alert(`Сума до оплати: ${total} грн\n\nУ наступній версії тут буде платіжна посилання LiqPay.`);
+      // TODO: заменить на реальную ссылку LiqPay с order_id и суммой
+    });
+
+    renderHall();
+  </script>
 </body>
 </html>
