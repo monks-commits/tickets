@@ -1,142 +1,63 @@
 <!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Академія Руху - Театральні квитки</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-theater-masks"></i>
-                <span>Театральні квитки</span>
-            </div>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Головна</a>
-                <a href="index.html#afisha" class="nav-link">Афіша</a>
-                <a href="index.html#theaters" class="nav-link">Театри</a>
-                <a href="index.html#about" class="nav-link">Про нас</a>
-                <a href="index.html#contact" class="nav-link">Контакти</a>
-            </nav>
+      <h2>Історія</h2>
+      <p>Простір було створено у 2018 році групою молодих митців. За кілька років він став важливою частиною культурного життя Кривбасу, організовуючи фестивалі, майстер-класи та резиденції для артистів з усієї України.</p>
+    </section>
+
+    <section class="hall-scheme">
+      <h2>Простір вистави</h2>
+      <div class="scheme-container">
+        <div class="scheme-image">
+          <i class="fas fa-theater-masks"></i>
+          <p style="margin-top: 10px; font-size: 16px;">Гнучкий театральний простір</p>
         </div>
-    </header>
-
-    <!-- Theater Page Content -->
-    <div class="theater-page-content">
-        <div class="container">
-            <!-- Theater Header -->
-            <div class="theater-header">
-                <div class="theater-image">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="theater-info">
-                    <h1>Академія Руху</h1>
-                    <p class="theater-city">Кривий Ріг</p>
-                    <div class="theater-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>вул. Соборна, 25, Кривий Ріг</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+380 (68) 516-01-02</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span>300 місць</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-ticket-alt"></i>
-                            <span>120-200 грн</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Theater Description -->
-            <section class="theater-description">
-                <h2>Про театр</h2>
-                <p>Академія Руху - сучасний театр, що експериментує з новими формами театрального мистецтва та сучасною драматургією.</p>
-                <p>Театр був заснований у 2010 році групою молодих акторів та режисерів, які прагнули створити новий простір для театрального мистецтва в Кривому Розі.</p>
-            </section>
-
-            <!-- Theater History -->
-            <section class="theater-history">
-                <h2>Історія театру</h2>
-                <p>Академія Руху була заснована у 2010 році як експериментальний театральний простір. Назва театру відображає його філософію постійного руху та розвитку.</p>
-                <p>За роки існування театр поставив понад 50 вистав різних жанрів - від класичної драми до сучасних перформансів та інтерактивних вистав.</p>
-            </section>
-
-            <!-- Hall Scheme -->
-            <section class="hall-scheme">
-                <h2>Схема залу</h2>
-                <div class="scheme-container">
-                    <div class="scheme-image">
-                        <i class="fas fa-star"></i>
-                        <p>Схема залу Академії Руху</p>
-                    </div>
-                    <div class="scheme-legend">
-                        <h3>Легенда місць:</h3>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #ff6b6b;"></div>
-                            <span>Партер (120-200 грн)</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #4CAF50;"></div>
-                            <span>Амфітеатр (120-200 грн)</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #2196F3;"></div>
-                            <span>Балкон (120-200 грн) </span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Performances -->
-            <section class="theater-performances">
-                <h2>Афіша театру</h2>
-                <div class="performances-grid">
-                    <div class="performance-card" onclick="openBookingModal('academy', 'modern-drama')">
-                        <div class="performance-image">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="performance-info">
-                            <h3>Сучасна драма</h3>
-                            <p class="performance-date">30 грудня 2024, 18:00</p>
-                            <p class="performance-price">120-200 грн</p>
-                            <p class="performance-description">Експериментальна театральна постановка</p>
-                            <button class="btn btn-primary">Купити квиток</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Back Button -->
-            <div class="back-button">
-                <a href="index.html" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i>
-                    Повернутися до головної
-                </a>
-            </div>
+        <div class="scheme-legend">
+          <h3>Типи місць:</h3>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #ff6b6b;"></div>
+            <span>Перший ряд (400 грн)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #4CAF50;"></div>
+            <span>Середні ряди (300 грн)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #2196F3;"></div>
+            <span>Останні ряди (200 грн)</span>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="theater-performances">
+      <h2>Афіша</h2>
+      <div class="performances-grid">
+        <a href="../dance-performance.html" class="performance-card">
+          <h3>«Тіло міста»</h3>
+          <p class="performance-date">16 грудня 2024, 19:00</p>
+          <p class="performance-price">200–400 грн</p>
+          <p>Хореографічний перформанс про Кривий Ріг</p>
+          <div class="btn">Купити квиток</div>
+        </a>
+
+        <a href="../documentary-theater.html" class="performance-card">
+          <h3>«Слова з фронту»</h3>
+          <p class="performance-date">22 грудня 2024, 18:00</p>
+          <p class="performance-price">200–400 грн</p>
+          <p>Документальна вистава на основі реальних історій</p>
+          <div class="btn">Купити квиток</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="back-button">
+      <a href="../index.html" class="btn">← Повернутися до головної</a>
     </div>
+  </div>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">&times;</span>
-            <div id="bookingContent">
-                <!-- Booking content will be loaded here -->
-            </div>
-        </div>
-    </div>
+  <footer>
+    &copy; 2025 Театральні квитки. Офіційний дистриб'ютор квитків.
+  </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
