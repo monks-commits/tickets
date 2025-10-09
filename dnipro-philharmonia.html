@@ -1,190 +1,142 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дніпропетровська філармонія - Театральні квитки</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Дніпропетровська філармонія — Театральні квитки</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; color: #333; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    header { background: #388e3c; color: white; padding: 15px 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+    .logo i { font-size: 24px; }
+    .theater-header { display: flex; gap: 20px; margin: 30px 0; align-items: flex-start; }
+    .theater-image { width: 120px; height: 120px; background: #e8f5e9; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #388e3c; }
+    .theater-info h1 { margin-top: 0; color: #388e3c; }
+    .theater-city { color: #d32f2f; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
+    .theater-details { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; }
+    .detail-item { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+    section { margin: 30px 0; }
+    h2 { color: #388e3c; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+    p { line-height: 1.6; }
+    .scheme-container { display: flex; gap: 30px; flex-wrap: wrap; }
+    .scheme-image { text-align: center; font-size: 60px; color: #388e3c; background: #e8f5e9; padding: 20px; border-radius: 8px; flex: 1; min-width: 200px; }
+    .scheme-legend { flex: 1; min-width: 200px; }
+    .legend-item { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+    .legend-color { width: 20px; height: 20px; border-radius: 3px; }
+    .performances-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    .performance-card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; transition: box-shadow 0.2s; }
+    .performance-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; }
+    .performance-card h3 { margin-top: 0; color: #388e3c; }
+    .performance-date, .performance-price { font-weight: bold; color: #d32f2f; }
+    .btn { display: inline-block; margin-top: 10px; padding: 8px 16px; background: #388e3c; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+    .btn:hover { background: #2e7d32; }
+    .back-button { text-align: center; margin: 30px 0; }
+    footer { text-align: center; padding: 20px 0; color: #666; font-size: 14px; border-top: 1px solid #eee; margin-top: 20px; }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-theater-masks"></i>
-                <span>Театральні квитки</span>
-            </div>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Головна</a>
-                <a href="index.html#afisha" class="nav-link">Афіша</a>
-                <a href="index.html#theaters" class="nav-link">Театри</a>
-                <a href="index.html#about" class="nav-link">Про нас</a>
-                <a href="index.html#contact" class="nav-link">Контакти</a>
-            </nav>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-music"></i>
+        <span>Театральні квитки</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="theater-header">
+      <div class="theater-image">
+        <i class="fas fa-microphone-alt"></i>
+      </div>
+      <div class="theater-info">
+        <h1>Дніпропетровська філармонія</h1>
+        <div class="theater-city">Дніпро</div>
+        <div class="theater-details">
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>вул. Карла Маркса, 40, Дніпро</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-phone"></i>
+            <span>+380 (68) 516-01-02</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-users"></i>
+            <span>600 місць</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-ticket-alt"></i>
+            <span>150–500 грн</span>
+          </div>
         </div>
-    </header>
-
-    <!-- Theater Page Content -->
-    <div class="theater-page-content">
-        <div class="container">
-            <!-- Theater Header -->
-            <div class="theater-header">
-                <div class="theater-image">
-                    <i class="fas fa-microphone"></i>
-                </div>
-                <div class="theater-info">
-                    <h1>Дніпропетровська філармонія ім. Л.Б. Когана</h1>
-                    <p class="theater-city">Дніпро</p>
-                    <div class="theater-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>вул. Воскресенська, 6, Дніпро</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+380 (68) 516-01-02</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <span>686 місць</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-ticket-alt"></i>
-                            <span>200-500 грн</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Theater Description -->
-            <section class="theater-description">
-                <h2>Про філармонію</h2>
-                <p>Дніпропетровська філармонія ім. Л.Б. Когана - провідна концертна організація міста, що проводить концерти класичної, сучасної та популярної музики.</p>
-                <p>Філармонія має два зали: великий концертний зал на 686 місць та малий камерний зал на 276 місць. Обидва зали обладнані сучасною акустичною системою.</p>
-            </section>
-
-            <!-- Hall Schemes -->
-            <section class="hall-schemes">
-                <h2>Схеми залів</h2>
-                
-                <div class="hall-scheme">
-                    <h3>Великий концертний зал (686 місць)</h3>
-                    <div class="scheme-container">
-                        <div class="scheme-image">
-                            <i class="fas fa-microphone"></i>
-                            <p>Схема великого залу</p>
-                        </div>
-                        <div class="scheme-legend">
-                            <h4>Легенда місць:</h4>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: #ff6b6b;"></div>
-                                <span> Партер (200-500 грн)</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: #4CAF50;"></div>
-                                <span>Бокові партера (200-500 грн)</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: #2196F3;"></div>
-                                <span>Балкон (200 грн)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hall-scheme">
-                    <h3>Малий камерний зал (276 місць)</h3>
-                    <div class="scheme-container">
-                        <div class="scheme-image">
-                            <i class="fas fa-music"></i>
-                            <p>Схема малого залу</p>
-                        </div>
-                        <div class="scheme-legend">
-                            <h4>Легенда місць:</h4>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: #ff6b6b;"></div>
-                                <span>Партер (180-350 грн)</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: #4CAF50;"></div>
-                                <span>Бокові партера (180-350 грн)</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: #2196F3;"></div>
-                                <span>Балкона нет </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Performances -->
-            <section class="theater-performances">
-                <h2>Афіша філармонії</h2>
-                <div class="performances-grid">
-                    <div class="performance-card" onclick="openBookingModal('philharmonia', 'anime-part1')">
-                        <div class="performance-image">
-                            <i class="fas fa-headphones"></i>
-                        </div>
-                        <div class="performance-info">
-                            <h3>Anime Part 1</h3>
-                            <p class="performance-date">18 грудня 2024, 18:00</p>
-                            <p class="performance-price">200-500 грн</p>
-                            <p class="performance-description">Концерт музики з аніме та японської культури</p>
-                            <button class="btn btn-primary">Купити квиток</button>
-                        </div>
-                    </div>
-
-                    <div class="performance-card" onclick="openBookingModal('philharmonia', 'jazz-night')">
-                        <div class="performance-image">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <div class="performance-info">
-                            <h3>Jazz Night</h3>
-                            <p class="performance-date">22 грудня 2024, 19:00</p>
-                            <p class="performance-price">200-500 грн</p>
-                            <p class="performance-description">Вечір джазової музики з відомими виконавцями</p>
-                            <button class="btn btn-primary">Купити квиток</button>
-                        </div>
-                    </div>
-
-                    <div class="performance-card" onclick="openBookingModal('philharmonia', 'rock-90x')">
-                        <div class="performance-image">
-                            <i class="fas fa-guitar"></i>
-                        </div>
-                        <div class="performance-info">
-                            <h3>Rock 90x</h3>
-                            <p class="performance-date">28 грудня 2024, 18:00</p>
-                            <p class="performance-price">200-500 грн</p>
-                            <p class="performance-description">Концерт рок-музики 90-х років</p>
-                            <button class="btn btn-primary">Купити квиток</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Back Button -->
-            <div class="back-button">
-                <a href="index.html" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i>
-                    Повернутися до головної
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">&times;</span>
-            <div id="bookingContent">
-                <!-- Booking content will be loaded here -->
-            </div>
-        </div>
-    </div>
+    <section class="theater-description">
+      <h2>Про філармонію</h2>
+      <p>Дніпропетровська обласна філармонія — один із провідних культурних центрів регіону. Тут проходять концерти симфонічної, камерної, естрадної та народної музики, виступи відомих солістів та колективів України та світу.</p>
+      <p>Філармонія активно співпрацює з міжнародними музичними фестивалями, залучає молодь до класичної музики та підтримує національних виконавців.</p>
+    </section>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <section class="theater-history">
+      <h2>Історія</h2>
+      <p>Філармонія була заснована у 1944 році. За роки своєї діяльності вона стала майданчиком для тисяч концертів, прем’єр та культурних подій, що об’єднують глядачів різного віку.</p>
+    </section>
+
+    <section class="hall-scheme">
+      <h2>Схема залу</h2>
+      <div class="scheme-container">
+        <div class="scheme-image">
+          <i class="fas fa-music"></i>
+          <p style="margin-top: 10px; font-size: 16px;">Концертний зал Філармонії</p>
+        </div>
+        <div class="scheme-legend">
+          <h3>Легенда місць:</h3>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #ff6b6b;"></div>
+            <span>Партер (300–500 грн)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #4CAF50;"></div>
+            <span>Балкон (150–250 грн)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="theater-performances">
+      <h2>Афіша</h2>
+      <div class="performances-grid">
+        <a href="../symphony-concert.html" class="performance-card">
+          <h3>Симфонічний концерт</h3>
+          <p class="performance-date">12 грудня 2024, 19:00</p>
+          <p class="performance-price">150–500 грн</p>
+          <p>Виступ Дніпровського симфонічного оркестру</p>
+          <div class="btn">Купити квиток</div>
+        </a>
+
+        <a href="../folk-evening.html" class="performance-card">
+          <h3>Вечір народної пісні</h3>
+          <p class="performance-date">18 грудня 2024, 18:00</p>
+          <p class="performance-price">150–400 грн</p>
+          <p>Капелла «Дніпро» та гості з Карпат</p>
+          <div class="btn">Купити квиток</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="back-button">
+      <a href="../index.html" class="btn">← Повернутися до головної</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Театральні квитки. Офіційний дистриб'ютор квитків.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
-</html>
+</html>                       
